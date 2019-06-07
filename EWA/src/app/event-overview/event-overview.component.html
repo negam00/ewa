@@ -1,0 +1,102 @@
+<div class="ce-form">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--12-col-phone mdl-cell--4-col-tablet" *ngIf="event.length != 0">
+            <h3>{{event.name}} <span class="event-date"><i class="material-icons">calendar_today</i> <span class="date-strip"> {{event.date | date}}</span></span></h3>
+            <input type="hidden" id="EID" value="{{event.eventId}}">
+            <div>{{event.descr}}</div>
+        </div>
+        <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--4-col-tablet" *ngIf="event.length != 0">
+            <button class="order-button">Place your order</button>     
+            <span class="warning" *ngIf="order.length == 0">Attention! <b>{{event.date | date:'MMMM d'}} 13:00 uur</b> is the last time you're be able to place your order.</span>
+                        
+        </div>
+        <div class="mdl-cell mdl-cell--12-col" *ngIf="event.managerID != loggedInUserID && event.length != 0">
+            <h4>Orders</h4>
+            <div class="orders">
+                <div class="attendee" *ngFor="let a of attendees">
+                    <div class="name">
+                        <i class="material-icons mdl-list__item-avatar">person</i>
+                        <span>{{a.firstname}} <span *ngIf="event.managerID == a.userID">(Event organiser)</span></span>
+
+                    </div>
+                    <div *ngIf="a.order.length != 0" class="order" >
+                        {{a.order}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--8-col" *ngIf="event.managerID == loggedInUserID && event.length != 0">
+            <h4>Orders</h4>
+            <div class="orders">
+                <div class="attendee" *ngFor="let a of attendees"> 
+                    <div class="name">
+                        <i class="material-icons mdl-list__item-avatar">person</i>
+                        <span>{{a.firstname}} <span *ngIf="event.managerID == a.userID">(Event organiser)</span></span>
+
+                    </div>
+                    <div *ngIf="a.order.length != 0" class="order" >
+                        {{a.order}}
+                            
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="event.managerID == loggedInUserID && event.length != 0" class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" >    
+            <input type="hidden" [(ngModel)]="eventOverview.eventId" value="{{event.eventId}}">
+            <h4 class="expand-add-people">Add people<i class="material-icons right">expand_more</i></h4>
+            <div class="add-people">
+                <input type="search" placeholder="Search" style="margin-bottom: 5px;" class="search-people">
+                <div class="invite-window">
+
+                    <label class="person" *ngFor="let u of attendeesWithEmail">
+                        <span class="name">{{u.firstname}} {{u.surname}}</span>
+                        <span class="email">{{u.email}}</span>
+                        <i *ngIf="u.userID != loggedInUserID" class="material-icons">add</i>
+                        <input id="checker{{u.userID}}" type="checkbox" class="checkbox mdl-switch__input" (change)="checkValue(u.userID)" />
+                    </label>
+                    <label *ngIf="attendeesWithEmail.length == 0" class="person">
+                        <span class="name">No users with same domain found</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+
+        <div *ngIf="event.managerID != loggedInUserID">
+
+
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col">
+            <h3 *ngIf="events.length == 0">No events found</h3>
+            <h4 *ngIf="events.length != 0">Choose event</h4>
+            <div class="event-items">
+                <div class="inner">
+                    <a class="item" *ngFor="let Event of events" href="http://localhost:4200/eventoverview/{{Event.eventId}}">
+                        <!-- <div *ngIf="Event.eventId "> -->
+                            <span class="name">{{Event.name}}</span>
+                            <span class="date">{{Event.date | date}}</span>
+                        <!-- </div> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Colored FAB button with ripple -->
+<!-- <a href="/eventoverview" class="mdl-button mdl-js-button mdl-button--raised">Edit event</a> -->
+<a href="/createevent" class="floating-action-button">
+    <span>+</span>
+</a>
+
+<div class="backdrop"></div>
+<div class="modal">
+    <h3>Your order</h3>
+    <textarea [(ngModel)]="orderData.userOrder"></textarea>
+    <div class="right">
+        <button class="cancel-order mdl-button mdl-js-button mdl-button--raised">Cancel</button>
+        <button (click)="addOrder()" class="submit-order mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Order</button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "MCDonalds",
+      "email": "info@mcdonalds.com",
+      "phone": "001-123-4567",
+      "description": "McDonald's biedt de beste kwaliteit en een gevarieerde keuze. Kom langs! Gratis Wi-Fi. Altijd Kwaliteit. Vers Bereid. Typen: Big Mac, Quarter Pounder, McChicken, Big Tasty, Happy Meal."
+    },
+    {
+      "id": 2,
+      "name": "KFC",
+      "email": "info@kfc.com",
+      "phone": "001-123-4568",
+      "description": "Ben je een liefhebber van kip? Dan is er maar 1 plaats waar je heen moet tijdens of na het winkelen in Almere Centrum. KFC natuurlijk!"
+    },
+    {
+      "id": 3,
+      "name": "Dunkin Donuts",
+      "email": "info@dunkindonuts.com",
+      "phone": "001-123-4568",
+      "description": "..."
+    },
+    {
+      "id": 4,
+      "name": "FEBO",
+      "email": "info@febo.com",
+      "phone": "001-123-4568",
+      "description": "..."
+    },
+    {
+      "id": 5,
+      "name": "Burger King",
+      "email": "info@burgerking.com",
+      "phone": "001-123-4568",
+      "description": "Bestel je Whopper, Tendercrisp of King Deal online via Thuisbezorgd.nl! Geen verborgen kosten. Snelle Levering. Gemakkelijk bestellen. Live je Bestelling Volgen. Echte Klantbeoordelingen."
+    },
+    {
+      "id": 6,
+      "name": "Subway",
+      "email": "info@subway.com",
+      "phone": "001-123-4568",
+      "description": "..."
+    },
+    {
+      "id": 7,
+      "name": "Loetje",
+      "email": "info@subway.com",
+      "phone": "001-123-4568",
+      "description": "..."
+    }
+  ]
+}

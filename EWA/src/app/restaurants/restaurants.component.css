@@ -1,0 +1,29 @@
+/*restaurants*/
+/*h1,h2,h3,h4,h5,h6{ font-weight: bold; }
+ul,ol{ padding: 0 20px; }
+
+.h4{ display: block; }
+.h4 h4{ display: inline-block; }
+
+.container{ max-width: 1100px; margin: 0 auto; }
+
+.plaatje{ background-color: #e8e8e8; background-size: cover; background-position: center; height: 150px; }
+
+table.settings{ display: inline-block; text-align: left; }
+table.settings tr td{ padding: 5px; }
+table.settings tr td:last-child{ text-align: right; }
+table.settings label{ font-weight: bold; padding-right: 30px; }
+
+table.buttons td{ width: 50%; }
+table.buttons button{ width: 100%;  }
+
+.left{ text-align: left!important; }
+.center{ text-align: center!important; }
+.right{ float: right; }
+
+.map_canvas {
+  overflow:hidden;
+  background:none!important;
+  height:300px;
+  width:130%;
+}*/

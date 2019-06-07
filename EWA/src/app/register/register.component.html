@@ -1,0 +1,44 @@
+          <!-- REGISTER FORM -->
+          <div id="register-page"></div>
+          <div align="center">
+                  <div class="mdl-cell mdl-cell--4-col mdl-card  util-center "align="center">
+                      <div class="mdl-card__supporting-text">
+                          <h2 align="center" class="mdl-cell mdl-cell--12-col">Create a new account</h2>
+                          <form method="POST" action="">
+                              <input type="hidden" name="action" value="register"/>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_firstname">Firstname</label>
+                                  <input [(ngModel)]="user.firstname" class="mdl-textfield__input" type="text" id="textfield_new_firstname" name="firstname" pattern="^[a-zA-Z]+$"/>
+                                  <span class="mdl-textfield__error">only letter from the alphabet allowed</span>
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_lastname">Lastname</label>
+                                  <input [(ngModel)]="user.surname" class="mdl-textfield__input" type="text" id="textfield_new_lastname" name="lastname" pattern="^[a-zA-Z]+$"/>
+                                  <span class="mdl-textfield__error">only letter from the alphabet allowed</span>
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_email">Email address</label>
+                                  <input [(ngModel)]="user.email" class="mdl-textfield__input" type="text" id="textfield_new_email" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+                                  <span class="mdl-textfield__error">only a email-address allowed</span>
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_password">Password</label>
+                                  <input [(ngModel)]="user.password" class="mdl-textfield__input" type="password" id="textfield_new_password" name="password"
+                                         pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!]).{6,20})"/>
+                                  <span class="mdl-textfield__error">6-20 characters with at least a digit, lowercase and uppercase letters, and special symbol in @#$%!</span>
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password_confirm">Password Confirm</label>
+                                  <input [(ngModel)]="password_confirm" class="mdl-textfield__input" type="password" id="textfield_password_confirm" name="password_confirm"/>
+                                  <span class="mdl-textfield__error" id="error">Passwords do not match</span>
+                              </div>
+                              <div class="mdl-cell mdl-cell--12-col send-button" align="center">
+                                  <button (click)="register()" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored" id="register">
+                                      Register
+                                  </button>
+                              </div>
+                              <a href="/">I already have an account</a>
+                          </form>
+                      </div>
+                  </div>
+          </div>

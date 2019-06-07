@@ -1,0 +1,51 @@
+                
+                <div class="ce-form">
+                    <div class="center">
+                        <h3>Settings</h3>
+                        <table class="settings">
+                            <tr>
+                                <td>
+                                    <label>Firstname</label>
+                                </td>
+                                <td>
+                                    <input class="mdl-textfield__input" type="email" [(ngModel)]="user.firstname">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Lastname</label>
+                                </td>
+                                <td>
+                                    <input class="mdl-textfield__input" type="email" [(ngModel)]="user.surname">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Email</label>
+                                </td>
+                                <td>
+                                    <input class="mdl-textfield__input" type="email" [(ngModel)]="user.email">
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td>
+                                    <label>Notifications</label>
+                                </td>
+                                <td>
+                                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                                        <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+                                        <span class="mdl-switch__label"></span>
+                                    </label>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td></td>
+                                <td class="left">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised" (click)="updateUser()">Submit</button>
+                                    <button class="mdl-button mdl-js-button mdl-button--raised" (click)="logout()">Logout</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>

@@ -1,0 +1,28 @@
+          <!-- LOGIN FORM -->
+          <div id="login-page"></div>
+          <div align="center">
+                  <div class="mdl-cell mdl-cell--4-col mdl-card  util-center "align="center">
+                      <div class="mdl-card__supporting-text">
+                          <h2 align="center" class="mdl-cell mdl-cell--12-col">User Login</h2>
+                          <form method="POST" action="">
+                              <input type="hidden" name="action" value="login"/>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <!-- <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_email">Email address</label> -->
+                                  <input [(ngModel)]="user.email" class="mdl-textfield__input" placeholder="Email Address" type="text" id="textfield_new_email" name="email"/>
+                                  <span class="mdl-textfield__error">only a email-address allowed</span>
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
+                                  <!-- <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_password">Password</label> -->
+                                  <input [(ngModel)]="user.password" class="mdl-textfield__input" placeholder="Password" type="password" id="textfield_new_password" name="password"/>
+                                  <span class="mdl-textfield__error" id="error">email/password combination is incorrect</span>
+                              </div>
+                              <div class="mdl-cell mdl-cell--12-col send-button" align="center">
+                                  <button type="submit" (click)="loginUser()" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+                                      Log In
+                                  </button>
+                              </div>
+                              <a href="/register">Create an account</a>
+                          </form>
+                      </div>
+                  </div>
+          </div>

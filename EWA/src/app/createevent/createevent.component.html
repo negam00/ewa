@@ -1,0 +1,43 @@
+<div class="ce-form">
+    <div class="mdl-grid">
+
+        <div class="mdl-cell mdl-cell--12-col">
+            <h3 class="center">Create an event</h3>
+        </div>
+
+        <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-phone mdl-cell--8-col-tablet">
+            <div class="inner-wrap">
+              <div class="form-group">
+                <label>Name event</label>
+                <input type="text" [(ngModel)]="eventDetails.name" placeholder="Name">
+              </div>
+                <br>
+                    <div class="form-group">
+                <label>Description</label>
+                <textarea name="test" [(ngModel)]="eventDetails.descr" placeholder="A short description..." rows="7" cols="18"></textarea>
+              </div>
+                <br>
+                <div class="form-group">
+                <label>Restaurant<a href="/restaurants" class="right" target="_blank">Restaurants list</a></label>
+                <select id="selectbox" [(ngModel)]="eventDetails.restaurantId" name="first">
+                    <option selected="selected" disabled="disabled">Make your choice...</option>
+                    <option *ngFor="let r of restaurants" value="{{r.restaurantId}}">{{r.name}}</option>
+                </select>
+              </div>
+                <br>
+            <div class="form-group">
+                <label>Date </label>
+                <input name="datetime-local" [(ngModel)]="eventDetails.date" type="date">
+              </div>
+              
+            </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col">
+            <div class="form-group">
+                <button class="mdl-button mdl-js-button mdl-button--raised" (click)="addEvent()">Create Event</button>
+            </div>
+        </div>
+
+    </div>
+</div>

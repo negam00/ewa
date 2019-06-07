@@ -1,0 +1,26 @@
+<div class="ce-form">  
+    <div class="mdl-grid">
+        <div class="restaurant-item restaurant-filter mdl-cell mdl-cell--4-col mdl-cell--8-col-phone mdl-cell--4-col-tablet">        
+            <h4>Filter<i class="filter-icon material-icons right">filter_list</i></h4>
+            <select class="filter-input select-restaurants" data-selected="">
+                <option value="" selected="selected">Category</option>
+                <option value="FastFood">FastFood</option>
+                <option value="Italian">Italian</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Overig">Overig</option>
+            </select>
+            <input type="search" name="" placeholder="Search" class="filter-input search-restaurants">
+        </div>
+        <a href="http://localhost:4200/restaurants/{{Restaurant.restaurantId}}" class="restaurant-item restaurant-card mdl-cell mdl-cell--4-col mdl-cell--8-col-phone mdl-cell--4-col-tablet" *ngFor="let Restaurant of restaurant">        
+            <h4>{{Restaurant.name}}</h4>
+            <p>
+                <span class="category">{{Restaurant.phone}}</span>
+            </p>
+            <hr>
+            <p>
+                {{Restaurant.description}}
+            </p>
+        </a>
+    </div>
+</div>

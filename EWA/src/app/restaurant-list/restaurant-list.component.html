@@ -1,0 +1,41 @@
+<div class="ce-form">
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12">
+
+      <div *ngIf="restaurant.length == 0">
+        <h3>There is no restaurant added yet!</h3>
+        <button class="btn btn-outline-primary" routerLink="/create-restaurant">Add Restaurant</button>
+      </div>
+
+      <div *ngIf="restaurant.length !== 0">
+      <h3>Restaurants List</h3>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">User Id</th>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+              <th class="mdl-data-table__cell--non-numeric">Email</th>
+              <th class="mdl-data-table__cell--non-numeric">Phone</th>
+              <th class="mdl-data-table__cell--non-numeric">Description</th>
+              <th class="mdl-data-table__cell--non-numeric">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Restaurant of restaurant">
+              <td>{{Restaurant.restaurantId}}</td>
+              <td><input type="text" class="form-control" value="{{Restaurant.name}}" placeholder="Name"></td>
+              <td><input type="text" class="form-control" value="{{Restaurant.email}}" placeholder="Email"></td>
+              <td><input type="text" class="form-control" value="{{Restaurant.phone}}" placeholder="Phone"></td>
+              <td><input type="text" class="form-control" value="{{Restaurant.description}}" placeholder="Description"></td>
+              <td>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" routerLink="/restaurant-update/{{Restaurant.id}}">Edit</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="deleteRestaurant(Restaurant.restaurantId)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

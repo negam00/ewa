@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EWA</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./assets/global.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="custom-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Aquadine</span>
+          <div class="mdl-layout-spacer"></div>
+
+          <!-- Navigation. Will be hidden for small screens -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <!-- <a class="mdl-navigation__link" href="">Home</a> -->
+            <!-- <a class="mdl-navigation__link" href="/createevent">Create event</a> -->
+            <a class="mdl-navigation__link" href="/eventoverview">My events</a>
+            <a class="mdl-navigation__link" href="/restaurants">Restaurants</a>
+            <a class="mdl-navigation__link" href="/settings">Settings</a>
+      <form action="#">
+<!--         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" id="sample6">
+            <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+          </div>
+        </div> -->
+      </form>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <span class="mdl-layout-title">Menu</span>
+        <!-- Mobile menu will be hidden for large screens -->
+        <nav class="mdl-navigation">
+          <!-- <a class="mdl-navigation__link" href="">Home</a> -->
+          <!-- <a class="mdl-navigation__link" href="/createevent">Create event</a> -->
+          <a class="mdl-navigation__link" href="/eventoverview">My events</a>
+          <a class="mdl-navigation__link" href="/restaurants">Restaurants</a>
+          <a class="mdl-navigation__link" href="/settings">Settings</a>
+<!--             <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" id="sample6">
+            <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+          </div>
+        </div>
+      </form> -->
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <!-- <div class="mdl-grid"> -->
+          <!-- Einde menu pagina maken in component van de pagina -->
+      <!-- <router-outlet></router-outlet> -->
+  <app-root></app-root>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript" src="./assets/main.js"></script>
+</html>
+
