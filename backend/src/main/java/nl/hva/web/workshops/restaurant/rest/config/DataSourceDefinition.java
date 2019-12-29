@@ -7,7 +7,8 @@ import javax.ejb.Stateless;
         className = "com.mysql.cj.jdbc.MysqlXADataSource",
         url = "jdbc:mysql://localhost:3306/aquadis?createDatabaseIfNotExist=true&serverTimezone=CET",
         user = "root",
-        password = "Ww231ww231!")
+//todo uncomment and enter own password
+//        password = "Ww231ww231!")
 @Stateless
 
 public class DataSourceDefinition {

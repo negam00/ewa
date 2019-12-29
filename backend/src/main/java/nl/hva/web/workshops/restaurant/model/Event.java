@@ -3,11 +3,8 @@ package nl.hva.web.workshops.restaurant.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import nl.hva.web.workshops.restaurant.model.User;
 
 
 @Entity
@@ -25,7 +22,7 @@ public class Event implements Serializable {
     @Column(name = "Name")
     private String name;
 
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss.SSSZ")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss.SSSZ")
     @Column(name = "EventDate")
     private Date eventDate;
 
@@ -121,7 +118,7 @@ public class Event implements Serializable {
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (eventDate != null ? !eventDate.equals(that.eventDate) : that.eventDate != null) return false;
         if (descr != null ? !descr.equals(that.descr) : that.descr != null) return false;
-
+//todo if state,emt
         return true;
     }
 

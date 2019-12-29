@@ -144,8 +144,12 @@ public class RepositoryServiceImpl implements RepositoryService {
     public List getListKoppels(int eid) {
         EntityManager em = entityManagerFactory.createEntityManager();
 
-//        List users = em.createQuery("SELECT u FROM User u INNER JOIN Attendeekoppel a ON u.userID = a.userId WHERE a.eventId="+ eventId + " ").getResultList();
-            List users = em.createQuery("SELECT a, u FROM Attendeekoppel a INNER JOIN User u ON a.userId = u.userID WHERE a.eventId = "+ eid +"").getResultList();
+//        org.hibernate.Query q =  session.createQuery("SELECT a, u FROM Attendeekoppel a INNER JOIN User u ON a.userId = u.userID WHERE a.eventId =?");
+//        q = q.setParameter(0,eid);
+//        org.hibernate.Query query =  em.createQuery("SELECT a, u FROM Attendeekoppel a INNER JOIN User u ON a.userId = u.userID WHERE a.eventId = " + eid);
+//
+//        List<Event> ev = em.createQuery(query).getResultList();
+
         em.close();
         return users;
     }
@@ -240,31 +244,16 @@ public class RepositoryServiceImpl implements RepositoryService {
     public List<Event> getEventsfromId(int UID) {
         EntityManager em = getEntityManager();
 
-//        List<Event> ev = em.createQuery("SELECT u FROM User u WHERE u.email=email").getResultList();
-//        List<User> users = em.createQuery("SELECT u FROM User u INNER JOIN Attendeekoppel a ON u.userID = a.userId WHERE a.eventId="+ eventId + " ").getResultList();
+        org.hibernate.Query q =  session.createQuery("SELECT e FROM Event e INNER JOIN Attendeekoppel a ON e.eventId=a.eventId WHERE a.userId=?");
+        q = q.setParameter(0,UID);
+        org.hibernate.Query query =  session.createQuery("SELECT e FROM Event e INNER JOIN Attendeekoppel a ON e.eventId=a.eventId WHERE a.userId=" + UID);
 
-        List<Event> ev = em.createQuery("SELECT e FROM Event e INNER JOIN Attendeekoppel a ON e.eventId=a.eventId WHERE a.userId=" + UID + " ").getResultList();
-//        em.createQuery("");
-
-//        SELECT * FROM event e INNER JOIN attendeeKoppel a ON e.EventID=a.EventID WHERE a.UserID=1;
-//        Event ev = em.find(Event.class, userId);
+        List<Event> ev = em.createQuery(query).getResultList();
 
         em.close();
 
         return ev;
     }
-
-//    @Override
-//    public Attendeekoppel getOrderfromId(int eid) {
-//        EntityManager em = getEntityManager();
-//
-//        Query query = em.createQuery("SELECT a FROM Attendeekoppel a WHERE a.userId = " + uid + " AND a.eventId = " + eid + "");
-//        Attendeekoppel att = (Attendeekoppel)query.getSingleResult();
-//
-//        em.close();
-//
-//        return att;
-//    }
 
     @Override
     public User getUserfromId(int userId) {
@@ -330,9 +319,13 @@ public class RepositoryServiceImpl implements RepositoryService {
 
         EntityManager em = getEntityManager();
 
-        Query query = em.createQuery("SELECT a FROM Attendeekoppel a WHERE a.eventId =" + eid + " AND a.userId = " + uid + "");
+//        Query q =  session.createQuery("SELECT a FROM Attendeekoppel a WHERE a.eventId =? AND a.userId =?");
+//        q = q.setParameter(0,eid);
+//        q = q.setParameter(1,uid);
+//        Query query =  session.createQuery("SELECT a FROM Attendeekoppel a WHERE a.eventId =" + eid + " AND a.userId = " + uid + "");
+
+
         Attendeekoppel att = (Attendeekoppel)query.getSingleResult();
-        //Attendeekoppel att = em.find(Attendeekoppel.class, id);
 
         em.getTransaction().begin();
         att.setUserOrder(koppel.getUserOrder());
@@ -350,11 +343,13 @@ public class RepositoryServiceImpl implements RepositoryService {
     @Override
     public boolean checkPassword(String email2, String password) {
         EntityManager em = getEntityManager();
-        Query query = em.createQuery("SELECT s FROM User s WHERE s.email ='" + email2 + "' ");
+
+        org.hibernate.Query q =  session.createQuery("\"SELECT s FROM User s WHERE s.email ='?'");
+        q = q.setParameter(0,email2);
+        org.hibernate.Query query =  session.createQuery("SELECT s FROM User s WHERE s.email ='" + email2 + "' ");
+
         User u = (User)query.getSingleResult();
 
-        //int id = att.getUserID();
-        //User u = em.find(User.class, email2);
         em.close();
 
         if(u == null) {
@@ -368,10 +363,8 @@ public class RepositoryServiceImpl implements RepositoryService {
     @Override
     public String getRoles(String email2) {
         EntityManager em = getEntityManager();
-        Query query = em.createQuery("SELECT s FROM User s WHERE s.email ='" + email2 + "' ");
         User u = (User)query.getSingleResult();
 
-        //User u = em.find(User.class, email);
         em.close();
 
         if(u == null) {

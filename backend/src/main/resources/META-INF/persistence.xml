@@ -7,7 +7,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <non-jta-data-source>java:comp/env/jdbc/aquadis</non-jta-data-source>
     <class>nl.hva.web.workshops.restaurant.model.Restaurant</class>
-    <class>nl.hva.web.workshops.restaurant.model.Event</class>
+    <class>nl.hva.web.workshops.restaurant.model</class>
     <class>nl.hva.web.workshops.restaurant.model.Attendeekoppel</class>
     <properties>
         <property name="javax.persistence.schema-generation.database.action" value=""/>

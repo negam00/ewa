@@ -7,10 +7,10 @@ import java.io.Serializable;
 @Table(name = "attendeekoppel", schema = "aquadis")
 public class Attendeekoppel implements Serializable {
 
-    @Column(name = "EventID")
+    @Column(name = "ID")
     private int eventId;
 
-    @Column(name = "UserID")
+    @Column(name = "ID")
     private int userId;
 
     @Id
@@ -67,7 +67,7 @@ public class Attendeekoppel implements Serializable {
 
         if (eventId != that.eventId) return false;
         if (userId != that.userId) return false;
-
+//todo bven if veranderen
         return true;
     }
 

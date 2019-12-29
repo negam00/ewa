@@ -60,7 +60,7 @@ public class JWTTokenCheckerFilter implements ContainerRequestFilter {
             System.out.println("#### valid token : " + token);
 
         } catch (ExpiredJwtException | MalformedJwtException | SignatureException | UnsupportedJwtException | IllegalArgumentException e) {
-            e.printStackTrace();
+            logger.log(e); //todo
             System.out.println("#### invalid token : " + token);
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
         }

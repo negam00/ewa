@@ -96,7 +96,7 @@ public class Restaurant implements Serializable {
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
-
+//todo rest if
         return true;
     }
 
